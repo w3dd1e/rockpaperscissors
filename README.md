@@ -1,2 +1,2 @@
 # rockpaperscissors
-A simple game of 
+ A simple game of Rock Paper Scissors.
