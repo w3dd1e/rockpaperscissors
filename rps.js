@@ -58,7 +58,7 @@ let playRound = () => {
 
     let winMessage = () => alert("You picked " + playerChoice + " and the computer picked " + computerChoice + ". You win this round!");
     let loseMessage = () => alert("You picked " + playerChoice + " and the computer picked " + computerChoice + ". You lose this round!");
-
+    let tieMessage = () => alert("You picked " + playerChoice + " and the computer picked " + computerChoice + ". It's a tie!");
 
     if (playerChoice === "rock" && computerChoice === "scissors") {
         winMessage();
@@ -69,6 +69,8 @@ let playRound = () => {
     } else if (playerChoice === "scissors" && computerChoice === "paper") {
         winMessage();
         playerScore++;
+    } else if (playerChoice === computerChoice) {
+        tieMessage();
     } else {
         loseMessage();
         computerScore++;
@@ -79,5 +81,29 @@ let playRound = () => {
     console.log("Computer: " + computerScore);
 
 }
+
+let playGame = () => {
+
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
+
+    let isWinner = playerScore > computerScore;
+    let isTie = playerScore === computerScore;
+
+    if (isWinner) {
+        alert("You win the game!")
+    } else if (isTie) {
+        alert("The game is a tie!")
+    } else {
+        alert("You lost the game!")
+    }
+
+    console.log(isWinner)
+    console.log(isTie)
+
+}
+
+playGame();
 
 
