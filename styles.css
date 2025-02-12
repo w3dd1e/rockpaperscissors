@@ -1,5 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /** Base colors */
+    --clr-dark-a0: #000000;
+    --clr-light-a0: #ffffff;
+
+    /** Dark theme primary colors */
+    --clr-primary-a0: #ee7baf;
+    --clr-primary-a10: #f18bb8;
+    --clr-primary-a20: #f49ac0;
+    --clr-primary-a30: #f7a9c9;
+    --clr-primary-a40: #f9b7d2;
+    --clr-primary-a50: #fbc6db;
+
+    /** Dark theme surface colors */
+    --clr-surface-a0: #121212;
+    --clr-surface-a10: #282828;
+    --clr-surface-a20: #3f3f3f;
+    --clr-surface-a30: #575757;
+    --clr-surface-a40: #717171;
+    --clr-surface-a50: #8b8b8b;
+
+    /** Dark theme tonal surface colors */
+    --clr-surface-tonal-a0: #251c20;
+    --clr-surface-tonal-a10: #3a3135;
+    --clr-surface-tonal-a20: #4f474b;
+    --clr-surface-tonal-a30: #665f62;
+    --clr-surface-tonal-a40: #7e777a;
+    --clr-surface-tonal-a50: #969193;
+
+
+}
+
 body {
     padding: 1rem;
+    background-color: var(--clr-surface-a0);
+    color: var(--clr-light-a0);
+    font-family: "DM Sans", "Roboto", sans-serif;
 }
 main {
     display: flex;
@@ -18,17 +55,22 @@ p {
     text-align: center;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin: 0;
+}
 .title {
-    margin: auto;
+    margin-right: auto;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .new-game {
     text-align: center;
+    font-weight: lighter;
 }
 
-h1 {
-    margin: 0;
-}
+
 
 h2 {
     margin: 0;
@@ -39,6 +81,7 @@ h2 {
     flex: 5;
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .game-info {
@@ -47,6 +90,8 @@ h2 {
 
 .player {
     flex: 1;
+    background-color: var(--clr-surface-a10);
+    border-radius: 1rem;
 }
 
 .choices {
@@ -54,6 +99,15 @@ h2 {
     display: flex;
     justify-content: center;
     gap: 3rem;
+    margin: 1rem;
+}
+
+button {
+    background-color: var(--clr-primary-a20);
+    border: none;
+    border-radius: .5rem;
+    font-size: 1rem;
+    padding: 1rem;
 }
 
 .score {
