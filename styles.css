@@ -1,28 +1,67 @@
+body {
+    padding: 1rem;
+}
 main {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
 
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+p {
+    text-align: center;
+}
+
+.title {
+    margin: auto;
+}
+
+.new-game {
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+}
+
 .game {
-    flex: 2;
+    flex: 5;
     display: flex;
     flex-wrap: wrap;
 }
 
-.gameInfo {
-    display: flex;
-    flex-direction: column;
+.game-info {
+    flex: 1;
+}
+
+.player {
+    flex: 1;
 }
 
 .choices {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
 }
 
 .score {
     flex: 1;
 }
 
+
 .directions {
     width: 100%;
+    margin-top: 2rem;
 }
