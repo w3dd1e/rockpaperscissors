@@ -1,0 +1,28 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.game {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gameInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.choices {
+    width: 100%;
+}
+
+.score {
+    flex: 1;
+}
+
+.directions {
+    width: 100%;
+}
