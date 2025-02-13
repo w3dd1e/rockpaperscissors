@@ -44,33 +44,25 @@ let computerScore = 0
 //
 
 let playRound = () => {
+    let playerTotal = document.querySelector('#player-score');
+    let computerTotal = document.querySelector('#computer-score');
+
 
     let computerChoice = getComputerChoice()
 
-    let winMessage = () => alert("You picked " + playerChoice + " and the computer picked " + computerChoice + ". You win this round!");
-    let loseMessage = () => alert("You picked " + playerChoice + " and the computer picked " + computerChoice + ". You lose this round!");
-    let tieMessage = () => alert("You picked " + playerChoice + " and the computer picked " + computerChoice + ". It's a tie!");
-
     if (playerChoice === "rock" && computerChoice === "scissors") {
-        winMessage();
         playerScore++;
     } else if (playerChoice === "paper" && computerChoice === "rock") {
-        winMessage();
         playerScore++;
     } else if (playerChoice === "scissors" && computerChoice === "paper") {
-        winMessage();
         playerScore++;
     } else if (playerChoice === computerChoice) {
-        tieMessage();
     } else {
-        loseMessage();
         computerScore++;
     }
 
-    console.log("Scores:");
-    console.log("Player: " + playerScore);
-    console.log("Computer: " + computerScore);
-
+    playerTotal.textContent = playerScore.toString();
+    computerTotal.textContent = computerScore.toString();
 }
 
 //
