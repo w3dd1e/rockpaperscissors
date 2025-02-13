@@ -86,6 +86,10 @@ h2 {
 
 .game-info {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 3rem;
 }
 
 .player {
@@ -100,6 +104,14 @@ h2 {
     justify-content: center;
     gap: 3rem;
     margin: 1rem;
+}
+
+.playerChoice svg {
+    transform: scaleX(-1);
+}
+
+svg path {
+    fill: var(--clr-light-a0);
 }
 
 button {
