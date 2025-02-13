@@ -19,19 +19,18 @@ let getComputerChoice = () => {
 //
 //Get selection from player
 //
+const buttons = document.querySelectorAll('button');
 
-let getPlayerChoice = () => {
-    let playerChoice = prompt("Pick rock, paper, or scissors.").toLowerCase()
-    switch (playerChoice) {
-        case "rock":
-        case "scissors":
-        case "paper":
-            return playerChoice
-        default:
-            alert("Please choose a rock, paper, or scissors.");
-            return getPlayerChoice()
-    }
-}
+let playerChoice;
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        playerChoice = e.target.textContent.toLowerCase();
+        console.log(playerChoice);
+        playRound()
+
+    })
+})
+
 
 //
 // Declare the current score
@@ -45,7 +44,7 @@ let computerScore = 0
 //
 
 let playRound = () => {
-    let playerChoice = getPlayerChoice()
+
     let computerChoice = getComputerChoice()
 
     let winMessage = () => alert("You picked " + playerChoice + " and the computer picked " + computerChoice + ". You win this round!");
@@ -99,6 +98,5 @@ let playGame = () => {
 
 }
 
-playGame();
-
+// playGame();
 
