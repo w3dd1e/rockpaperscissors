@@ -180,6 +180,12 @@ button {
     align-items: flex-start;
 }
 
+footer a {
+    text-align: center;
+    font-size: .75rem;
+    font-weight: lighter;
+}
+
 @media (max-device-width: 768px) {
     main {
         display: flex;
