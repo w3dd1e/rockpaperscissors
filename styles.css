@@ -183,7 +183,7 @@ button {
 footer a {
     text-align: center;
     font-size: .75rem;
-    font-weight: lighter;
+    font-weight: 200;
 }
 
 @media (max-device-width: 768px) {
