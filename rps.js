@@ -1,16 +1,30 @@
 //
-// Set choice images
+// Set choices
 //
-const rock = "./rock.svg";
-const paper = "./paper.svg";
-const scissors = "./scissors.svg";
-
-function setChoiceImage(choice, player) {
-    let card = document.querySelector("." + player + "ChoiceImg");
-    card.setAttribute("src", choice);
+const options = {
+    "Rock": "./rock.svg",
+    "Paper": "./paper.svg",
+    "Scissors": "./scissors.svg",
 
 }
 
+
+function setChoiceImage(choice, player) {
+    let card = document.querySelector("." + player + "Choice");
+    card.firstElementChild.setAttribute("src", options[choice]);
+    card.lastElementChild.textContent = choice;
+
+
+}
+
+//
+//Start new game
+//
+
+const newGame = document.querySelector(".new-game")
+newGame.addEventListener("click", () => {
+    window.location.reload();
+})
 //
 // Computer randomly selects rock, paper, or scissors
 //
@@ -19,14 +33,14 @@ let getComputerChoice = () => {
     let random = Math.floor(Math.random() * 3);
 
     if (random === 0) {
-        setChoiceImage(rock, "computer");
-        return "rock"
+        setChoiceImage("Rock", "computer");
+        return "Rock"
     } else if (random === 1) {
-        setChoiceImage(scissors, "computer")
-        return "scissors"
+        setChoiceImage("Paper", "computer")
+        return "Scissors"
     } else if (random === 2) {
-        setChoiceImage(paper, "computer")
-        return "paper"
+        setChoiceImage("Scissors", "computer")
+        return "Paper"
     } else {
         return "Error: No selection made by computer"
     }
@@ -35,14 +49,14 @@ let getComputerChoice = () => {
 //
 //Get selection from player
 //
+let playerChoice;
 
 const buttons = document.querySelectorAll('button');
-let playerObject = {};
-let playerChoice;
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        playerChoice = e.target.textContent.toLowerCase();
-        setChoiceImage(eval(playerChoice), "player");
+        playerChoice = e.target.textContent
+
+        setChoiceImage(playerChoice, "player");
         playRound()
 
     })
@@ -55,6 +69,17 @@ buttons.forEach((button) => {
 
 let playerScore = 0
 let computerScore = 0
+let playerTotal = document.querySelector('#player-score');
+let computerTotal = document.querySelector('#computer-score');
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    playerTotal.textContent = playerScore.toString();
+    computerTotal.textContent = computerScore.toString();
+
+}
+
 
 //
 //Results Messages
@@ -70,19 +95,17 @@ function resultsMessage(result) {
 //
 
 let playRound = () => {
-    let playerTotal = document.querySelector('#player-score');
-    let computerTotal = document.querySelector('#computer-score');
-
 
     let computerChoice = getComputerChoice()
 
-    if (playerChoice === "rock" && computerChoice === "scissors") {
+
+    if (playerChoice === "Rock" && computerChoice === "Scissors") {
         resultsMessage("Win!");
         playerScore++;
-    } else if (playerChoice === "paper" && computerChoice === "rock") {
+    } else if (playerChoice === "Paper" && computerChoice === "Rock") {
         resultsMessage("Win!");
         playerScore++;
-    } else if (playerChoice === "scissors" && computerChoice === "paper") {
+    } else if (playerChoice === "Scissors" && computerChoice === "Paper") {
         resultsMessage("Win!");
         playerScore++;
     } else if (playerChoice === computerChoice) {
@@ -94,6 +117,19 @@ let playRound = () => {
 
     playerTotal.textContent = playerScore.toString();
     computerTotal.textContent = computerScore.toString();
+    const choices = document.querySelector('.choices');
+    if (playerScore === 5) {
+        resultsMessage("Game over! You win!")
+        choices.replaceChildren("Select New Game to play again.")
+    } else if (computerScore === 5) {
+        resultsMessage("Game over! You lose!")
+        choices.replaceChildren("Select New Game to play again.")
+
+    }
+
+
+
+
 }
 
 //
@@ -121,5 +157,9 @@ let playGame = () => {
 
 }
 
-// playGame();
+//
+// Get a game winner
+//
+
+
 
