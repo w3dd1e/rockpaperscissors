@@ -37,10 +37,10 @@ let getComputerChoice = () => {
         return "Rock"
     } else if (random === 1) {
         setChoiceImage("Paper", "computer")
-        return "Scissors"
+        return "Paper"
     } else if (random === 2) {
         setChoiceImage("Scissors", "computer")
-        return "Paper"
+        return "Scissors"
     } else {
         return "Error: No selection made by computer"
     }
@@ -98,7 +98,7 @@ let playRound = () => {
 
     let computerChoice = getComputerChoice()
 
-
+    console.log(computerChoice)
     if (playerChoice === "Rock" && computerChoice === "Scissors") {
         resultsMessage("Win!");
         playerScore++;
